@@ -6,6 +6,7 @@ const TodoRoutes = require("./Routes/todosRoutes");
 mongoose.set("strictQuery", false);
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 dotenv.config();
 app.use("/api", TodoRoutes);

@@ -20,7 +20,10 @@ const getTodos = async (req, res) => {
 
 const updateTodo = async (req, res) => {
   try {
-    const updatedTodo = await TODO.findByIdAndUpdate(req.params.id, req.body, {
+    const { id } = req.params;
+    console.log(id);
+    console.log(req.body);
+    const updatedTodo = await TODO.findByIdAndUpdate(id, req.body, {
       new: true,
     });
     res.status(200).json(updatedTodo);
